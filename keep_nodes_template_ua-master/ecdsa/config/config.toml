@@ -1,0 +1,40 @@
+# Це конфігураційний TOML файл для Ноди ECDSA.
+
+# Підключення до блокчейну Ethereum.
+# Замініть посилання нижче на ті, що вказані на сайті Infura для Ноди ECDSA.
+[ethereum]
+  URL = "wss://ropsten.infura.io/ws/v3/ВАШ_PROJECT_ID_НА_INFURA_ДЛЯ_НОДИ_ECDSA"
+  URLRPC = "https://ropsten.infura.io/v3/ВАШ_PROJECT_ID_НА_INFURA_ДЛЯ_НОДИ_ECDSA"
+
+
+# Адреса вашого гаманця і шлях до keyfile на сервері. Замініть адресу гаманця. Адресу шляху міняти не потрібно.
+[ethereum.account]
+  Address = "АДРЕС_ВАШОГО_ГАМАНЦЯ"
+  KeyFile = "/mnt/keep-ecdsa-client/config/keep-ecdsa-operator-account-keyfile"
+
+
+# Конфігурація адрес контрактів Keep.
+# Тут нічого міняти не потрібно, але при необхідності можна звірити адреси пірів, тому що вони періодично змінюються.
+# Офіційні адреси для ECDSA можна подивитися тут: https://github.com/keep-network/keep-ecdsa/blob/master/docs/run-keep-ecdsa.adoc#72-testnet
+
+[ethereum.ContractAddresses]
+  BondedECDSAKeepFactory = "0x9EcCf03dFBDa6A5E50d7aBA14e0c60c2F6c575E6"
+
+[SanctionedApplications]
+  Addresses = [
+    "0xc3f96306eDabACEa249D2D22Ec65697f38c6Da69"
+  ]
+
+[LibP2P]
+  Peers = ["/dns4/bootstrap-1.ecdsa.keep.test.boar.network/tcp/4001/ipfs/16Uiu2HAmPFXDaeGWtnzd8s39NsaQguoWtKi77834A6xwYqeicq6N",
+"/dns4/ecdsa-2.test.keep.network/tcp/3919/ipfs/16Uiu2HAmNNuCp45z5bgB8KiTHv1vHTNAVbBgxxtTFGAndageo9Dp",
+"/dns4/ecdsa-3.test.keep.network/tcp/3919/ipfs/16Uiu2HAm8KJX32kr3eYUhDuzwTucSfAfspnjnXNf9veVhB12t6Vf"]
+  Port = 3919
+
+# Шлях до сховища, тут нічого міняти не потрібно.
+[Storage]
+  DataDir = "/mnt/keep-ecdsa-client/persistence"
+
+[TSS]
+# Timeout для TSS протоколу, тут нічого міняти не потрібно.
+  PreParamsGenerationTimeout = "2m30s"
